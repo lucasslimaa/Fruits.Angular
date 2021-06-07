@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    
+    this.userName = '';
+    this.password  = '';
   }
 
   submit() {
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         if (err.status == 401)
-          this.toastr.error('Incorrect username or password.', 'Authentication failed.');
+          this.toastr.error('Usuario ou senha inválidos.', 'Falha na autenticação!.');
         else
           console.log(err);
       }

@@ -1,23 +1,23 @@
 <div class="row center">
-    <div class="col s12 m10 offset-m1 l6 offset-l3">
-    <div class="card sticky-action z-depth-4 card-panel hoverable">
-       <div class="card-content" >
-          <div class="row center-align">
-             <span class="card-title grey-text text-darken-4 center-align">Login</span>     
-             <div class="form-group">
-                <label>Usuario</label>
-                <input class="form-control" [(ngModel)]="userName">
-             </div>
-             <div class="form-group">
-                <label>Senha</label>
-                <input type="password" class="form-control" [(ngModel)]="password">
-             </div>
-             <div class="form-row">
-                <div class="form-group col-md-8 offset-md-2">
-                   <button class="btn waves-effect waves-light" type="submit" (click)="submit()">Login</button>
-                   <button class="btn waves-effect waves-light" routerLink='/user/registration' routerLinkActive='active'>Registrar</button>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
+   <div class="col s12 m10 offset-m1 l6 offset-l3">
+      <div class="card sticky-action z-depth-4 card-panel hoverable">
+         <div class="card-content" >
+            <div class="row center-align">
+               <span class="card-title grey-text text-darken-4 center-align">Login</span>  
+               <label>Usuario</label>
+               <input class="form-control" [(ngModel)]="userName">
+            </div>
+            <div class="row center-align">
+               <label>Senha</label>
+               <input type="password" class="form-control" [(ngModel)]="password">
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-8 offset-md-2">
+               <button class="btn waves-effect waves-light" type="submit" (click)="submit()">Login</button>
+               <button class="btn waves-effect waves-light" routerLink="/registration" routerLinkActive='active'>Registrar</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

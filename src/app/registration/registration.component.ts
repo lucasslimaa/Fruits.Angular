@@ -10,26 +10,31 @@ import { RegistrationSerivice } from '../services/registration.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  private userName: string = '';
-  private password: string = '';
+  public userName: string = '';
+  public password: string = '';
+  public email: string = '';
 
   constructor(private registrationService: RegistrationSerivice, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    
+    this.userName = '';
+    this.password = '';
+    this.email = '';
   }
 
   submit() {
-    const formFields = {UserName : this.userName, Password: this.password};
+    const formFields = {UserName : this.userName, Email: this.email, Password: this.password};
 
-    this.registrationService.login(formFields).subscribe(
+    this.registrationService.create(formFields).subscribe(
       (res: any) => {
-        localStorage.setItem('token', res.token);
-        this.router.navigateByUrl('/home');
+        this.toastr.success('Usuario criado com sucesso')
+        this.router.navigateByUrl('/login');
       },
       err => {
         if (err.status == 401)
-          this.toastr.error('Incorrect username or password.', 'Authentication failed.');
+          this.toastr.error('Falha ao criar usuario.', 'Verifique os campos e tente novamente!.');
+        if (err.status == 400)
+          this.toastr.error('Verifique os campos e tente novamente');
         else
           console.log(err);
       }
