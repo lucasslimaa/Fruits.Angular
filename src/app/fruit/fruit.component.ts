@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginSerivce } from '../services/login.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-fruit',
+  templateUrl: './fruit.component.html',
+  styleUrls: ['./fruit.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class FruitComponent implements OnInit {
 
-  constructor(private loginService: LoginSerivce) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.loginService.createLogin()
   }
 
 }

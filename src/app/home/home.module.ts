@@ -1,17 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { FruitComponent } from './fruit.component';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [
-    FruitComponent
+    HomeComponent
   ],
   imports: [
-    FormsModule,
     CommonModule
   ],
   providers: [  
   ],
 })
-export class FruitModule { }
+export class HomeModule { }

@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 
 export class BaseService {
-    readonly BASE_URL = 'http://127.0.0.1:8000/api/';
+    readonly BASE_URL = 'https://localhost:44324/';
 
     constructor(public http: HttpClient) { }
 
@@ -9,7 +9,8 @@ export class BaseService {
         return this.http.get(this.BASE_URL + url, options);
     }
 
-    post(url: string, body: any, options?: any) {
+    post(url: string, body: any, options?: any){
+        
         return this.http.post(this.BASE_URL + url, body, options);
     }
 
