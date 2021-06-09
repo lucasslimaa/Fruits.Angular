@@ -9,6 +9,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
+import { AuthGuard } from './auth/auth.guard';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [

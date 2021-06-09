@@ -11,6 +11,6 @@ export class LoginService extends BaseService{
 
     login(body: any){
         return this.post('User/login', body);
-    }
+    }  
 }
 

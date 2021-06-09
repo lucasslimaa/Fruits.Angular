@@ -51,6 +51,7 @@ export class RegistrationComponent implements OnInit {
 
     if(this.password.trim() == ''){
       this.toastr.error('O campo senha é obrigatório');
+      return false;
     }
 
     if(this.password.trim() != ''){

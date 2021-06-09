@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
@@ -18,21 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./registration/registration.module').then(m => m.RegistrationModule)
   },
   {
-    path: 'home',
+    path: 'home',canActivate: [AuthGuard],
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   }
   ]
-//   {path:'',redirectTo:'login',pathMatch:'full'},
-//   {
-//     path: 'login', component: LoginComponent,
-//     children: [
-//       { path: 'registration', component: RegistrationComponent },
-//       { path: 'login', component: LoginComponent }
-//     ]
-//   },
-//   {path:'home',component:HomeComponent,canActivate:[AuthGuard]}
-// ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -10,6 +10,7 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
 
+  public invalidLogin : boolean = true;
   public userName: string = '';
   public password: string = '';
 
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.userName = '';
     this.password  = '';
+    this.invalidLogin=true;
   }
 
   submit() {
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(formFields).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
+        this.invalidLogin=false;
         this.router.navigateByUrl('/home');
       },
       err => {
