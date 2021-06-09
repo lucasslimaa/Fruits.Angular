@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/home');
       },
       err => {
-        if (err.status == 401)
+        if (err.status == 401 || err.status == 400)
           this.toastr.error('Usuario ou senha inválidos.', 'Falha na autenticação!.');
         else
           console.log(err);

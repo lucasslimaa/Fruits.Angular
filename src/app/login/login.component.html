@@ -1,23 +1,23 @@
-<div class="row center">
-   <div class="col s12 m10 offset-m1 l6 offset-l3">
-      <div class="card sticky-action z-depth-4 card-panel hoverable">
-         <div class="card-content" >
-            <div class="row center-align">
-               <span class="card-title grey-text text-darken-4 center-align">Login</span>  
-               <label>Usuario</label>
-               <input class="form-control" [(ngModel)]="userName">
-            </div>
-            <div class="row center-align">
-               <label>Senha</label>
-               <input type="password" class="form-control" [(ngModel)]="password">
-            </div>
-         </div>
-         <div class="form-row">
-            <div class="form-group col-md-8 offset-md-2">
-               <button class="btn waves-effect waves-light" type="submit" (click)="submit()">Login</button>
-               <button class="btn waves-effect waves-light" routerLink="/registration" routerLinkActive='active'>Registrar</button>
+<section class="view intro-2">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="card">
+                  <div class="box">
+                     <h1>Login</h1>
+                     <p class="text-muted"> Realize o login!</p> 
+                     <input type="text" [(ngModel)]="userName"placeholder="Usuario"> 
+                     <input type="password" [(ngModel)]="password" placeholder="Senha"> 
+                     <a class="forgot text-muted" href="#">Forgot password?</a> 
+                     <div class="row">
+                        <div class="col-md-12">
+                           <button class="btn btn-lg" type="submit" (click)="submit()">Login</button>
+                           <button class="btn btn-lg" routerLink="/registration" routerLinkActive='active'>Registrar</button>
+                        </div>
+                     </div>
+                  </div>
             </div>
          </div>
       </div>
    </div>
-</div>
+</section>
