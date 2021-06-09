@@ -1,51 +1,29 @@
-<!-- <div class="row center">
-    <div class="col s12 m10 offset-m1 l6 offset-l3">
-    <div class="card sticky-action z-depth-4 card-panel hoverable">
-       <div class="card-content" >
-          <div class="row center-align">
-             <span class="card-title grey-text text-darken-4 center-align">Cadastro</span>  
-             <div class="card-body">
-                <div class="form-group">
-                   <label for="username">Usuario</label>
-                   <input input class="form-control" [(ngModel)]="userName" required/>
-                </div>
-                <div class="form-group">
-                   <label for="email">Email</label>
-                   <input input class="form-control" [(ngModel)]="email" required/>
-                </div>
-                <div class="form-group">
-                   <label for="password">Password</label>
-                   <input type="password" class="form-control" [(ngModel)]="password" required/>
-                </div>
-                <div class="form-group">
-                   <button class="btn waves-effect waves-light" type="submit" (click)="submit()">Criar</button>
-                   <button class="btn waves-effect waves-light" routerLink="../login">Cancelar</button>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div> -->
-
-    <section class="view intro-2">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-6">
-               <div class="card">
-                     <div class="box">
-                        <h1>Cadastro</h1>
-                        <input type="text" placeholder="Usuario" [(ngModel)]="userName" required/>
-                        <input type="text" placeholder="Email" [(ngModel)]="email" required/>
-                        <input type="password" placeholder="Senha" [(ngModel)]="password" required/>
-                        <a class="forgot text-muted" href="#">Esqueceu a senha?</a> 
-                        <div class="row">
-                           <div class="col-md-12">
-                              <button class="btn btn-lg" type="submit" (click)="submit()">Cadastrar</button>
-                              <button class="btn btn-lg" routerLink="../login">&#60;-</button>
-                           </div>
-                        </div>
+<section class="view intro-2">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="card">
+               <div class="box">
+                  <h1>Cadastro</h1>
+                  <input type="text" placeholder="Usuario" [(ngModel)]="userName"/>
+                  <input type="text" placeholder="Email" [(ngModel)]="email" /> 
+                  <input type="password" placeholder="Senha" [(ngModel)]="password" (focus)="showPasswordTips()" (focusout)="showPasswordTips()"/>
+                  <div *ngIf="showTips">
+                     <span class="tipsText">&#8226;Ao menos 1 letra maiuscula</span>
+                     <span class="tipsText">&#8226;Ao menos 6 digitos<br></span>
+                     <span class="tipsText">&#8226;Ao menos 1 letra minuscula<br></span>
+                     <span class="tipsText">&#8226;Ao menos 1 caractere especial<br></span>                           
+                  </div>
+                  <input type="password" placeholder="Confirme a senha" [(ngModel)]="passwordConfirmation"/>   
+                  <div class="row">
+                     <div class="col-md-12">
+                        <button class="btn btn-lg" type="submit" (click)="submit()">Cadastrar</button>
+                        <button class="btn btn-lg" routerLink="../login"><i class="bi bi-arrow-left"></i></button>
                      </div>
+                  </div>
                </div>
             </div>
          </div>
       </div>
-   </section>
+   </div>
+</section>

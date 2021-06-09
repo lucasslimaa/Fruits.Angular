@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
   submit() {
     const formFields = {UserName : this.userName, Password: this.password};
 
+    if(!this.validateForm()){
+      return;
+    }
+
     this.loginService.login(formFields).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
@@ -36,4 +40,14 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  validateForm(){
+
+    if(this.userName == '' || this.password == ''){
+      this.toastr.error('Usuario ou senha inválidos');
+      return false;
+    }
+     return true;
+  }
+
 }
