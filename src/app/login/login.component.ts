@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +10,14 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  public invalidLogin : boolean = true;
   public userName: string = '';
   public password: string = '';
 
-  constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService) { }
+  constructor(private router: Router, private toastr: ToastrService, private authService : AuthService) { }
 
   ngOnInit(): void {
     this.userName = '';
     this.password  = '';
-    this.invalidLogin=true;
   }
 
   submit() {
@@ -28,26 +26,15 @@ export class LoginComponent implements OnInit {
     if(!this.validateForm()){
       return;
     }
+    
+    this.authService.login(formFields);
 
-    this.loginService.login(formFields).subscribe(
-      (res: any) => {
-        localStorage.setItem('token', res.token);
-        this.invalidLogin=false;
-        this.router.navigateByUrl('/home');
-      },
-      err => {
-        if (err.status == 401 || err.status == 400)
-          this.toastr.error('Usuario ou senha inválidos.', 'Falha na autenticação!.');
-        else
-          console.log(err);
-      }
-    );
   }
 
   validateForm(){
 
-    if(this.userName == '' || this.password == ''){
-      this.toastr.error('Usuario ou senha inválidos');
+    if(this.userName.trim() == '' || this.password.trim() == ''){
+      this.toastr.error('Insira os campos Usuario e Senha!');
       return false;
     }
      return true;

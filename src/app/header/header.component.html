@@ -1,0 +1,23 @@
+<div *ngIf="isLoggedIn$ | async">           
+    <div class='container'>
+        <div class='center'>
+            <a class="navbar-brand"><img src="../../assets/logo.png"></a>
+
+            <form class="center form-inline">
+                <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </div>
+            </form>
+        </div>
+
+        <div class='right'>
+            <a class="btn">
+                <img class='nv-icon'src="../../assets/shopping_cart_white.svg">
+            </a>    
+
+            <a class="btn" (click)="onLogout()">
+                <img class='nv-icon'src="../../assets/logout_icon.svg">
+            </a>
+        </div>                      
+    </div>
+</div>
